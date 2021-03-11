@@ -1,8 +1,7 @@
 from random import randint
 
-from django.shortcuts import render
-
 from django.http import Http404
+from django.shortcuts import render
 
 from .data import departures, tours
 
