@@ -24,6 +24,7 @@ def main_view(request):
 def departure_view(request, dep):
     if dep not in departures:
         raise Http404
+    path = request.path
     dep_list = {}
     for key, value in tours.items():
         if value['departure'] == dep:
@@ -39,7 +40,8 @@ def departure_view(request, dep):
         'max_nights': max(nights),
         'count': len(dep_list),
         'dep_list': dep_list,
-        'departure': departures[dep]
+        'departure': departures[dep],
+        'path': path
     }
     return render(request, 'departure.html', context)
 
