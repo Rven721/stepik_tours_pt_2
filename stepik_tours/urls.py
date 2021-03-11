@@ -17,12 +17,9 @@ from django.contrib import admin
 from django.urls import path
 import tours.views as tv
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', tv.main_view, name='home'),
-    path('departure/', tv.departure_view, name='departure'),
-    path('tour/', tv.tour_view, name='tour'),
-    path('1/', tv.TestView.as_view())
-
+    path('', tv.main_view, name="home"),
+    path('departure/<str:dep>/', tv.departure_view),
+    path('tour/<tour_id>/', tv.tour_view),
 ]
