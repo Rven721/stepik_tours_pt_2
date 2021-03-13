@@ -17,7 +17,7 @@ def main_view(request):
             tour_list[i]['ru_departure'] = departures[tour_list[i]['departure']]
         except KeyError:
             pass
-    return render(request, 'index.html', {'tour_list': tour_list})
+    return render(request, 'tours/index.html', {'tour_list': tour_list})
 
 
 def departure_view(request, dep):
@@ -42,7 +42,7 @@ def departure_view(request, dep):
         'departure': departures[dep],
         'path': path
     }
-    return render(request, 'departure.html', context)
+    return render(request, 'tours/departure.html', context)
 
 
 def tour_view(request, tour_id):
@@ -51,4 +51,4 @@ def tour_view(request, tour_id):
     tour = tours[int(tour_id)]
     stars = "★" * int(tour['stars'])
     run = str(f"{tour['country']} {departures[tour['departure']]} {tour['nights']} ночей")
-    return render(request, 'tour.html', {'tour': tour, 'stars': stars, 'run': run})
+    return render(request, 'tours/tour.html', {'tour': tour, 'stars': stars, 'run': run})
