@@ -17,27 +17,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav active">
+                {% for key, value in departures.items %}
                 <li class="nav-item">
-                    <a class="nav-link {%if path == '/departure/msk/'%}active{%endif%}" href="/departure/msk">Из
-                        Москвы</a>
+                    <a href="/departure/{{key}}"
+                       class="nav-link {%if dep == key or key == tour.departure %} active {% endif %}">{{value}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {%if path == '/departure/spb/'%}active{%endif%}" href="/departure/spb">Из
-                        Петербурга</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {%if path == '/departure/nsk/'%}active{%endif%}" href="/departure/nsk">Из
-                        Новосибирска</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {%if path == '/departure/ekb/'%} active {%endif%}" href="/departure/ekb">Из
-                        Екатеринбурга</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {%if path == '/departure/kazan/'%} active {%endif%}" href="/departure/kazan">Из
-                        Казани</a>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     </nav>
