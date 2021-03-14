@@ -34,6 +34,13 @@ def departure_view(request, dep):
         value['star_img'] = "★" * int(value['stars'])
     prises = [int(value['price']) for value in dep_list.values()]
     nights = [int(value['nights']) for value in dep_list.values()]
+    begin = 'Найден' if len(dep_list) % 10 == 1 else 'Найдено'
+    if len(dep_list) % 10 >= 5:
+        ending = 'туров'
+    elif len(dep_list) == 1:
+        ending = 'тур'
+    else:
+        ending = 'тура'
     context = {
         'min_prise': min(prises),
         'max_prise': max(prises),
@@ -43,7 +50,9 @@ def departure_view(request, dep):
         'dep_list': dep_list,
         'departure': departures[dep],
         'dep': dep,
-        'departures': departures
+        'departures': departures,
+        'ending': ending,
+        'begin': begin,
     }
     return render(request, 'tours/departure.html', context)
 
