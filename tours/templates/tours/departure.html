@@ -1,13 +1,19 @@
-{% extends 'tours/base.html'%}
-
-{% block title%} {{departure}} {%endblock%}
+{% extends 'tours/base.html' %}
+{% load ru_pluralize %}
+{% block title %} {{ departure }} {% endblock %}
 
 {% block content %}
 <main class="container mt-3">
-    <h1 class="display-5 mt-4">Летим из {{ departure }}</h1>
-    <p class="mb-4">{{begin}} {{count}} {{ending}}, от {{min_prise}} до {{max_prise}} и от {{min_nights}} ночей до
-        {{max_nights}} ночей</p>
-    <!-- CARDS -->
+    <h1 class="display-5 mt-4">Летим {{departure}}</h1>
+
+    <p class="mb-4">
+        {% if count == 1 %}
+        {{ begin }} {{ count|ru_pluralize:'тур,тура,туров' }}, за {{ min_prise }} на {{min_nights|ru_pluralize:'ночи,ночи,ночей'}}
+        {% else %}
+        {{begin}} {{ count|ru_pluralize:'тур,тура,туров' }}, от {{min_prise}} до {{max_prise}} и от {{min_nights|ru_pluralize:'ночи,ночи,ночей'}} до
+        {{max_nights|ru_pluralize:'ночи,ночей,ночей'}}</p>
+        {% endif %}
+     <!-- CARDS -->
     <div class="row mt-5">
         {% for key, value in dep_list.items %}
         <div class="col-4">
