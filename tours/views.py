@@ -24,15 +24,15 @@ def departure_view(request, dep):
     if dep not in departures:
         raise Http404
     dep_list = {}
-    for key, value in tours.items():
-        if value['departure'] == dep:
-            dep_list[key] = value
+    for tour_id, tour_details in tours.items():
+        if tour_details['departure'] == dep:
+            dep_list[tour_id] = tour_details
     if len(dep_list) == 0:
         return render(request, 'tours/reject.html', {'dep': dep, 'departure': departures[dep]})
-    for value in dep_list.values():
-        value['star_img'] = "★" * int(value['stars'])
-    prises = [int(value['price']) for value in dep_list.values()]
-    nights = [int(value['nights']) for value in dep_list.values()]
+    for tour_details in dep_list.values():
+        tour_details['star_img'] = "★" * int(tour_details['stars'])
+    prises = [int(tour_details['price']) for tour_details in dep_list.values()]
+    nights = [int(tour_details['nights']) for tour_details in dep_list.values()]
     begin = 'Найден' if len(dep_list) % 10 == 1 else 'Найдено'
     context = {
         'min_prise': min(prises),
