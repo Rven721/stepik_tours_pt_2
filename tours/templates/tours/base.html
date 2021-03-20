@@ -20,7 +20,7 @@
             <ul class="navbar-nav active">
                 {% for key, value in departures.items %}
                 <li class="nav-item">
-                    <a href="/departure/{{key}}"
+                    <a href="{% url 'depart' key %}"
                        class="nav-link {%if dep == key or key == tour.departure %} active {% endif %}">{{value}}</a>
                 </li>
                 {% endfor %}
