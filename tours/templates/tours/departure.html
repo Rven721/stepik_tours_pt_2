@@ -8,21 +8,21 @@
 
     <p class="mb-4">
         {% if count == 1 %}
-        {{ begin }} {{ count|ru_pluralize:'тур,тура,туров' }}, за {{ min_prise }} на {{min_nights|ru_pluralize:'ночи,ночи,ночей'}}
+        {{ begin }} {{ count|ru_pluralize:'тур,тура,туров' }}, за {{ min_prise }} на {{min_nights|ru_pluralize:'ночь,ночи,ночей'}}
         {% else %}
         {{begin}} {{ count|ru_pluralize:'тур,тура,туров' }}, от {{min_prise}} до {{max_prise}} и от {{min_nights|ru_pluralize:'ночи,ночи,ночей'}} до
         {{max_nights|ru_pluralize:'ночи,ночей,ночей'}}</p>
         {% endif %}
      <!-- CARDS -->
     <div class="row mt-5">
-        {% for key, value in dep_list.items %}
+        {% for tour_id, tour_details in dep_list.items %}
         <div class="col-4">
             <div class="card mb-4">
-                <img src="{{value.picture}}" class="card-img-top img-fluid" alt="">
+                <img src="{{tour_details.picture}}" class="card-img-top img-fluid" alt="">
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{value.title}} {{value.star_img}}</h2>
-                    <p class="card-text">{{value.description}}</p>
-                    <a href="{% url 'tour' key %}" class="btn btn-sm btn-primary">Подробнее</a>
+                    <h2 class="h5 card-title">{{tour_details.title}} {{tour_details.star_img}}</h2>
+                    <p class="card-text">{{tour_details.description}}</p>
+                    <a href="{% url 'tour' tour_id %}" class="btn btn-sm btn-primary">Подробнее</a>
                 </div>
             </div>
         </div>

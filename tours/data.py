@@ -11,7 +11,7 @@ tours = {
         "description": "Отель выглядит уютно. Он был построен из красного соснового дерева и украшен синими камнями.  "
                        "Высокие округлые окна добавляют общий стиль дома и были добавлены в дом в довольно "
                        "симметричном образце.",
-        "departure": "nsk",
+        "departure": "msk",
         "picture": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid"
                    "=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
         "price": 62000,

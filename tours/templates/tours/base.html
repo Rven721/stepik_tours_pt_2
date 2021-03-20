@@ -18,10 +18,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav active">
-                {% for key, value in departures.items %}
+                {% for dep_id, dep_name in departures.items %}
                 <li class="nav-item">
-                    <a href="{% url 'depart' key %}"
-                       class="nav-link {%if dep == key or key == tour.departure %} active {% endif %}">{{value}}</a>
+                    <a href="{% url 'depart' dep_id %}"
+                       class="nav-link {%if dep == dep_id or dep_id == tour.departure %} active {% endif %}">{{dep_name}}</a>
                 </li>
                 {% endfor %}
             </ul>

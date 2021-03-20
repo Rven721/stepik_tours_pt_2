@@ -16,16 +16,16 @@
     </section>
     <!-- CARDS -->
     <div class="row mt-5">
-        {% for key, value in tour_list.items %}
+        {% for tour_id, tour_details in tour_list.items %}
         <div class="col-4">
             <div class="card mb-4">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <img class="card-img-top embed-responsive-item" src="{{value.picture}}" alt=""/>
+                    <img class="card-img-top embed-responsive-item" src="{{tour_details.picture}}" alt=""/>
                 </div>
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{value.title}}</h2>
-                    <p class="card-text">{{value.country}} {{value.ru_departure}} {{value.nights|ru_pluralize:'ночь,ночи,ночей'}}</p>
-                    <a href="{% url 'tour' key %}" class="btn btn-sm btn-primary">Подробнее</a>
+                    <h2 class="h5 card-title">{{tour_details.title}}</h2>
+                    <p class="card-text">{{tour_details.country}} {{tour_details.ru_departure}} {{tour_details.nights|ru_pluralize:'ночь,ночи,ночей'}}</p>
+                    <a href="{% url 'tour' tour_id %}" class="btn btn-sm btn-primary">Подробнее</a>
                 </div>
             </div>
         </div>
