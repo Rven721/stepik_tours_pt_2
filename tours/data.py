@@ -15,7 +15,7 @@ tours = {
         "picture": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid"
                    "=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
         "price": 62000,
-        "stars": "4",
+        "stars": '4',
         "country": "Куба",
         "nights": 6,
         "date": "2 марта",

@@ -1,5 +1,6 @@
 {% extends 'tours/base.html' %}
 {% load ru_pluralize %}
+{% load star_display %}
 {% block title %} {{ departure }} {% endblock %}
 
 {% block content %}
@@ -20,7 +21,7 @@
             <div class="card mb-4">
                 <img src="{{tour_details.picture}}" class="card-img-top img-fluid" alt="">
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{tour_details.title}} {{tour_details.star_img}}</h2>
+                    <h2 class="h5 card-title">{{tour_details.title}} {{tour_details.stars|star_display}}</h2>
                     <p class="card-text">{{tour_details.description}}</p>
                     <a href="{% url 'tour' tour_id %}" class="btn btn-sm btn-primary">Подробнее</a>
                 </div>
